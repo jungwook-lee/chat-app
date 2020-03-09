@@ -3,13 +3,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-<h1>Chatting with <b>{{ user.username }}</b></h1>
-<h2>Messages: </h2>
-{% for msg in msgs %}
-    <div><p>{{ msg.author }} says: <b>{{ msg.content }}</b></p></div>
-{% endfor %}
-<h3>Text Field Placeholder</h3>
-<h4>Send Placeholder</h4>
-
+<h1>chat.me</h1>
+<h2>current user: {{ user.username }}</h2>
+    <div><p>last login - yesterday</p></div>
 {% endblock %}

@@ -1,0 +1,29 @@
+<!-- Main Chat functional page -->
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Received Messages -->
+<h1><b>{{ user.username }}</b></h1>
+<h2>messages: </h2>
+{% for msg in msgs %}
+    <div><p>{{ msg.author }} says: <b>{{ msg.content }}</b></p></div>
+{% endfor %}
+
+<!-- Send Message -->
+<!-- for forms, when action is empty, data is sent to url -->
+<!-- post for better user experience -->
+<form action="" method="post" novalidate>
+    <!-- hidden token to protect from CSRF attacks -->
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.text_field.label }}<br>
+        {{ form.text_field(size=32) }}
+    </p>
+    <p>
+        {{ form.submit() }}
+    </p>
+</form>
+
+{% endblock %}
