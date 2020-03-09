@@ -1,20 +1,15 @@
-<html>
-    <head>
-        {% if title %}
-        <title>{{ title }} - chat.me</title>
-        {% else %}
-        <title>chat.me demo</title>
-        {% endif %}
-    </head>
-    <body>
-        <h1>Chat.me - Welcome, {{ user.username }}!</h1>
-        <h2>Messages: </h2>
+<!-- This includes the navigational elements-->
 
-        {% for msg in msgs %}
-        <li>{{ msg.author }} says: {{ msg.content }}</li>
-        {% endfor %}
+{% extends "base.html" %}
 
-        <h3>Text Field Placeholder</h3>
-        <h4>Send Placeholder</h4>
-    </body>
-</html>
+{% block content %}
+
+<h1>Chatting with <b>{{ user.username }}</b></h1>
+<h2>Messages: </h2>
+{% for msg in msgs %}
+    <div><p>{{ msg.author }} says: <b>{{ msg.content }}</b></p></div>
+{% endfor %}
+<h3>Text Field Placeholder</h3>
+<h4>Send Placeholder</h4>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+<!-- Base contains navigation -->
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }} - chat.me</title>
+        {% else %}
+        <title>chat.me demo</title>
+        {% endif %}
+    </head>
+    <body>
+        <div> chat.me: <a href="/index">chat</a>
+        <hr>
+        {% block content %}{% endblock %}
+    </body>
+</html>
+
