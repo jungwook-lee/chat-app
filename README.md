@@ -8,3 +8,5 @@ A real-time messanging app to learn python web stack.
 2. Export `FLASK_APP` varialbe
 `export FLASK_APP=`chat_app.py`
 
+# Learning Notes
+- `Flask` uses `Jinja2` template engine
