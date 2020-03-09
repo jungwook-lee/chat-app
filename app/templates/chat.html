@@ -20,6 +20,10 @@
     <p>
         {{ form.text_field.label }}<br>
         {{ form.text_field(size=32) }}
+        
+        {% for error in form.text_field.errors %}
+        <span style="color: red;"[{{ error }}]</span>
+        {% endfor %}
     </p>
     <p>
         {{ form.submit() }}

@@ -9,10 +9,19 @@
     </head>
     <body>
         <div> chat.me: 
-            <a href="/index">Home</a>
+            <a href="{{ url_for('index') }}">Home</a>
             <a> </a>
-            <a href="/chat">Chat</a>
+            <a href="{{ url_for('chat') }}">Chat</a>
         <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
        {% block content %}{% endblock %}
     </body>
 </html>
