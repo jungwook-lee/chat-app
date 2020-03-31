@@ -26,3 +26,8 @@ def chat():
         return redirect(url_for('chat'))
     return render_template('chat.html', title='Chat', user=user,  msgs=msgs,
                            form=form)
+
+@app.route('/')
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    pass
