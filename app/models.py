@@ -1,9 +1,17 @@
 from datetime import datetime
-from app import db
+from app import db, login
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin
 
-class User(db.Model):
-    """ Model to store user informations """
+class User(UserMixin, db.Model):
+    """ Model to store user informations 
+
+    UserMixin implements the following properties, functions:
+        - is_authenticated
+        - is_active
+        - is_anonymous
+        - get_id()
+    """
     def __repr__(self):
         return '<User {}>'.format(self.username)
 
@@ -32,3 +40,8 @@ class Msg(db.Model):
     from_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     to_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+
+# Loads the user into the current session
+@login.user_loader
+def load_user(id):
+    return User.query.get(int(id))

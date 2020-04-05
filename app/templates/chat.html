@@ -5,7 +5,7 @@
 {% block content %}
 
 <!-- Received Messages -->
-<h1><b>{{ user.username }}</b></h1>
+<h1><b>{{ current_user.username }}</b></h1>
 <h2>messages: </h2>
 {% for msg in msgs %}
     <div><p>{{ msg.author }} says: <b>{{ msg.content }}</b></p></div>
